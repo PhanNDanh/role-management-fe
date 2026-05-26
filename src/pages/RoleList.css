@@ -1,0 +1,217 @@
+.role-page {
+  min-height: 100vh;
+  background: #f7f7f8;
+  padding: 40px 56px;
+  color: #202124;
+}
+
+.role-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.role-header h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.role-header p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.btn-add {
+  background: #ed002f !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 12px 22px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 18px rgba(237, 0, 47, 0.22);
+}
+
+.filter-card {
+  border: none !important;
+  border-radius: 18px !important;
+  margin-bottom: 26px;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.filter-card .card-body {
+  padding: 0 !important;
+}
+
+.filter-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.filter-card input,
+.filter-card select {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  font-size: 15px;
+  padding-left: 16px;
+}
+
+.filter-card input:focus,
+.filter-card select:focus {
+  border-color: #ed002f;
+  box-shadow: 0 0 0 3px rgba(237, 0, 47, 0.08);
+}
+
+.btn-search {
+  height: 48px;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+.table-card {
+  border: none !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08) !important;
+}
+
+.table-body {
+  padding: 0 !important;
+}
+
+.role-table {
+  margin-bottom: 0 !important;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.role-table thead th {
+  background: #ffffff;
+  color: #30343b;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 18px 18px;
+  border-bottom: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  white-space: nowrap;
+}
+
+.role-table thead th:last-child {
+  border-right: none;
+}
+
+.role-table tbody td {
+  padding: 18px 18px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f2f2f2;
+  color: #3f3f46;
+  font-size: 15px;
+}
+
+.role-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.role-table tbody tr:hover {
+  background: #fff1f3;
+}
+
+.role-name {
+  font-weight: 600;
+  color: #111827 !important;
+}
+
+.role-code {
+  color: #374151;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+  padding: 7px 13px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+
+.badge-inactive {
+  background: #f3f4f6 !important;
+  color: #6b7280 !important;
+  padding: 7px 13px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+
+.action-btn {
+  width: 34px;
+  height: 34px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  font-size: 20px !important;
+  line-height: 20px !important;
+  font-weight: 800 !important;
+  color: #4b5563 !important;
+}
+
+.table-footer {
+  min-height: 64px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.record-info {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.pagination-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-size-label {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.page-size-select {
+  width: 78px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.page-btn {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 10px !important;
+  border: 1px solid #e5e7eb !important;
+  background: #ffffff !important;
+  color: #374151 !important;
+  font-weight: 800 !important;
+}
+
+.page-btn:disabled {
+  opacity: 0.45;
+}
+
+.page-current {
+  min-width: 78px;
+  text-align: center;
+  font-weight: 800;
+  color: #111827;
+}

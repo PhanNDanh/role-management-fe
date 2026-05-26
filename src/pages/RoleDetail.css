@@ -1,0 +1,354 @@
+/* =========================================================
+   ROLE DETAIL PAGE
+========================================================= */
+
+.role-detail-page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+
+  background: #f7f7f8;
+
+  /* bỏ gần hết lề */
+  padding: 0 6px 40px;
+
+  color: #111827;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar {
+  height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ffffff;
+
+  margin-bottom: 20px;
+
+  padding: 0 8px;
+
+  border-radius: 0 0 12px 12px;
+
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+
+.back-button {
+  border-radius: 10px !important;
+
+  font-weight: 700 !important;
+
+  padding: 10px 18px !important;
+}
+
+.detail-action {
+  min-width: 160px;
+  height: 46px;
+
+  border-radius: 10px !important;
+
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.role-detail-page h1 {
+  font-size: 34px;
+
+  font-weight: 800;
+
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+/* =========================================================
+   COMMON CARD
+========================================================= */
+
+.info-card,
+.permission-card {
+  width: 100%;
+
+  border: none !important;
+
+  border-radius: 18px !important;
+
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+
+  margin-bottom: 22px;
+}
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card .card-body {
+  padding: 28px 34px;
+}
+
+.info-card h3 {
+  font-size: 24px;
+
+  font-weight: 800;
+
+  margin-bottom: 26px;
+}
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns: 220px 1fr;
+
+  row-gap: 22px;
+
+  font-size: 18px;
+}
+
+.info-label {
+  font-weight: 800;
+}
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.tabs {
+  display: flex;
+
+  gap: 30px;
+
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding-bottom: 12px;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color: #9ca3af;
+
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #ed002f;
+
+  border-bottom: 3px solid #ed002f;
+}
+
+/* =========================================================
+   PERMISSION CARD
+========================================================= */
+
+.permission-card .card-body {
+  padding: 6px;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-function {
+  width: 420px;
+  height: 48px;
+
+  border-radius: 12px;
+
+  border: 1px solid #e5e7eb;
+
+  padding: 0 18px;
+
+  margin-bottom: 18px;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.search-function:focus {
+  border-color: #ed002f;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.permission-table {
+  width: 100%;
+
+  border: 1px solid #eeeeee;
+
+  margin-bottom: 0 !important;
+
+  background: white;
+}
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.permission-table th {
+  background: #ffffff;
+
+  padding: 14px 10px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  border: 1px solid #eeeeee;
+
+  white-space: nowrap;
+
+  text-align: center;
+}
+
+/* cột tên function siêu rộng */
+.permission-table th:first-child {
+  text-align: left;
+
+  width: 65%;
+}
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.permission-table td {
+  padding: 14px 10px;
+
+  border: 1px solid #f1f1f1;
+
+  vertical-align: middle;
+
+  text-align: center;
+
+  font-size: 15px;
+}
+
+.permission-table td:first-child {
+  text-align: left;
+}
+
+/* =========================================================
+   FUNCTION TREE
+========================================================= */
+
+.function-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   EXPAND BUTTON
+========================================================= */
+
+.tree-toggle {
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid #9ca3af;
+
+  background: #ffffff;
+
+  color: #6b7280;
+
+  border-radius: 4px;
+
+  font-weight: 900;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.tree-toggle:hover {
+  background: #f3f4f6;
+}
+
+/* giữ alignment */
+.tree-space {
+  display: inline-block;
+
+  width: 24px;
+}
+
+/* =========================================================
+   PARENT ROW
+========================================================= */
+
+.parent-row {
+  background: #fafafa;
+}
+
+.parent-row .function-name {
+  font-weight: 800;
+
+  font-size: 18px;
+}
+
+.parent-empty-cell {
+  background: #fafafa;
+}
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.permission-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+
+  accent-color: #ed002f;
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1400px) {
+  .permission-table th:first-child {
+    width: 55%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .permission-table th:first-child {
+    width: 45%;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-function {
+    width: 100%;
+  }
+
+  .permission-table {
+    font-size: 13px;
+  }
+
+  .permission-table th,
+  .permission-table td {
+    padding: 10px 6px;
+  }
+}
