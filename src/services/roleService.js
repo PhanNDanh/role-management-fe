@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const ROLE_API_URL = "http://localhost:8081/api/roles";
+const ROLE_API_URL = "https://role-management-be.onrender.com/api/roles";
 
-const ROLE_PERMISSIONS_API_URL = "http://localhost:8081/api/roles-permissions";
+const ROLE_PERMISSIONS_API_URL = "https://role-management-be.onrender.com/api/roles-permissions";
 
 const headers = {
   "x-kxh-realm": "demo"
