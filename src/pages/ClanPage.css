@@ -1,0 +1,62 @@
+.clan-page {
+  width: 100%;
+}
+
+.clan-hero {
+  background: linear-gradient(135deg, #8b1e1e, #d92d20);
+  color: white;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clan-label {
+  margin: 0 0 8px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+
+.clan-hero h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.clan-hero p {
+  margin: 10px 0 0;
+}
+
+.clan-badge {
+  background: white;
+  color: #b42318;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.clan-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.clan-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.clan-card h3 {
+  margin: 0 0 12px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.clan-card h2 {
+  margin: 0;
+  font-size: 26px;
+}

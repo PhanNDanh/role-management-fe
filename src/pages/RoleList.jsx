@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  Col,
-  Input,
-  Row,
-  Table
-} from "reactstrap";
+import { Badge, Button, Card, CardBody, Input, Table } from "reactstrap";
+import { FaSearch, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 import "./RoleList.css";
 import { searchRoles } from "../services/roleService";
@@ -25,13 +18,13 @@ export default function RoleList() {
   const [totalElements, setTotalElements] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
-  const fetchRoles = async () => {
+  const fetchRoles = async (nextPage = page) => {
     try {
       const response = await searchRoles({
         keyword,
         status: status || null,
-        page,
-        size
+        page: nextPage,
+        size,
       });
 
       setRoles(response.content || []);
@@ -46,132 +39,95 @@ export default function RoleList() {
     fetchRoles();
   }, [page, size]);
 
+  useEffect(() => {
+    fetchRoles(0);
+  }, [status]);
+
   const handleSearch = () => {
     setPage(0);
-    fetchRoles();
+    fetchRoles(0);
   };
 
-  const fromRecord = totalElements === 0 ? 0 : page * size + 1;
-  const toRecord = page * size + roles.length;
+  const handleStatusChange = (value) => {
+    setStatus(value);
+    setPage(0);
+  };
 
   return (
     <div className="role-page">
       <div className="role-header">
-        <div>
-          <h2>Vai trò người dùng</h2>
-          <p>Quản lý vai trò và phân quyền người dùng trong hệ thống</p>
-        </div>
+        <h2>Vai trò người dùng</h2>
 
-        <Button className="btn-add">
-          + Thêm vai trò
-        </Button>
+        <Button className="btn-add">+ Thêm vai trò</Button>
       </div>
 
-      <Card className="filter-card">
-        <CardBody>
-          <Row className="g-3 align-items-end">
-            <Col md="5">
-              <label>Mã / tên vai trò</label>
-              <Input
-                placeholder="Nhập mã hoặc tên vai trò..."
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSearch();
-                  }
-                }}
-              />
-            </Col>
+      <div className="role-filter-row">
+        <div className="search-box">
+          <FaSearch className="search-icon" />
 
-            <Col md="3">
-              <label>Trạng thái</label>
-              <Input
-                type="select"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
-                <option value="">Tất cả trạng thái</option>
-                <option value="1">Đang hoạt động</option>
-                <option value="0">Ngừng hoạt động</option>
-              </Input>
-            </Col>
+          <input
+            className="search-input"
+            placeholder="Tìm theo mã hoặc tên vai trò"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+        </div>
 
-            <Col md="2">
-              <Button
-                color="primary"
-                className="w-100 btn-search"
-                onClick={handleSearch}
-              >
-                Tìm kiếm
-              </Button>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+        <select
+          className="status-select"
+          value={status}
+          onChange={(e) => handleStatusChange(e.target.value)}
+        >
+          <option value="">Trạng thái</option>
+          <option value="1">Đang hoạt động</option>
+          <option value="0">Ngừng hoạt động</option>
+        </select>
+      </div>
 
       <Card className="table-card">
         <CardBody className="table-body">
-          <Table responsive hover className="role-table">
+          <Table responsive className="role-table">
             <thead>
               <tr>
                 <th>Mã vai trò</th>
                 <th>Tên vai trò</th>
                 <th>Mô tả</th>
                 <th>Trạng thái</th>
-                <th className="text-center">Thao tác</th>
+                <th></th>
               </tr>
             </thead>
 
             <tbody>
               {roles.map((role) => (
-                <tr
-                  key={role.id}
-                  className="role-row"
-                  onClick={() => navigate(`/roles/${role.id}`)}
-                >
-                  <td>
-                    <span className="role-code">{role.code}</span>
-                  </td>
-
-                  <td className="role-name">
-                    {role.name}
-                  </td>
-
-                  <td className="text-muted">
-                    {role.description || "--"}
-                  </td>
-
+                <tr key={role.id} onClick={() => navigate(`/roles/${role.id}`)}>
+                  <td>{role.code}</td>
+                  <td>{role.name}</td>
+                  <td>{role.description || "--"}</td>
                   <td>
                     {role.status === 1 ? (
-                      <Badge className="badge-active">
-                        Đang hoạt động
-                      </Badge>
+                      <Badge className="badge-active">Đang hoạt động</Badge>
                     ) : (
-                      <Badge className="badge-inactive">
-                        Ngừng hoạt động
-                      </Badge>
+                      <Badge className="badge-inactive">Ngừng hoạt động</Badge>
                     )}
                   </td>
 
                   <td
-                    className="text-center"
+                    className="action-cell"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Button
-                      size="sm"
-                      color="light"
-                      className="action-btn"
-                    >
-                      ⋯
-                    </Button>
+                    <BsThreeDotsVertical />
                   </td>
                 </tr>
               ))}
 
               {roles.length === 0 && (
                 <tr>
-                  <td colSpan="5" className="text-center py-5 text-muted">
+                  <td colSpan="5" className="empty-data">
                     Không có dữ liệu
                   </td>
                 </tr>
@@ -180,12 +136,12 @@ export default function RoleList() {
           </Table>
 
           <div className="table-footer">
-            <div className="record-info">
-              Hiển thị {fromRecord} - {toRecord} trong tổng số {totalElements} bản ghi
+            <div>
+              Hiển thị {roles.length} kết quả trong tổng số {totalElements}
             </div>
 
             <div className="pagination-box">
-              <span className="page-size-label">Số bản ghi:</span>
+              <span>Số bản ghi:</span>
 
               <Input
                 type="select"
@@ -203,43 +159,21 @@ export default function RoleList() {
               </Input>
 
               <Button
-                size="sm"
-                className="page-btn"
-                disabled={page === 0}
-                onClick={() => setPage(0)}
-              >
-                «
-              </Button>
-
-              <Button
-                size="sm"
-                className="page-btn"
+                className="page-icon"
                 disabled={page === 0}
                 onClick={() => setPage(page - 1)}
               >
-                ‹
+                <FaChevronLeft />
               </Button>
 
-              <span className="page-current">
-                {page + 1} / {totalPages || 1}
-              </span>
+              <span className="page-current">{page + 1}</span>
 
               <Button
-                size="sm"
-                className="page-btn"
+                className="page-icon"
                 disabled={page + 1 >= totalPages}
                 onClick={() => setPage(page + 1)}
               >
-                ›
-              </Button>
-
-              <Button
-                size="sm"
-                className="page-btn"
-                disabled={page + 1 >= totalPages}
-                onClick={() => setPage(totalPages - 1)}
-              >
-                »
+                <FaChevronRight />
               </Button>
             </div>
           </div>
