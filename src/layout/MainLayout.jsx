@@ -59,12 +59,12 @@ function MainLayout({ children }) {
           <div>
             <div className="logo-title">Phan Đại Tộc</div>
             <div className="logo-subtitle">
-              Xuân Phương - Xuân Trường
+              Xuân Hưng - Ninh Bình
             </div>
           </div>
         </div>
 
-        <div className="menu-section-title">Nghiệp vụ dòng họ</div>
+        <div className="menu-section-title">THÔNG TIN DÒNG HỌ</div>
 
         <nav className="sidebar-menu">
           <button
@@ -254,7 +254,14 @@ function MainLayout({ children }) {
         <main className="content">{children}</main>
 
         <footer className="footer">
-          © 2026 Phan Đại Tộc - Nhà thờ tổ Phan Tộc
+          <div>
+            © 2026 Phan Đại Tộc - Nhà thờ tổ Phan Tộc
+            <br />
+            <span>
+              Tư liệu lịch sử, gia phả và hình ảnh được sưu tầm, biên soạn từ nguồn tư liệu của ông
+              <strong> Phan Văn Chính</strong>.
+            </span>
+          </div>
         </footer>
       </div>
     </div>

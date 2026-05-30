@@ -72,7 +72,7 @@ export default function HomePage() {
           <h1>Nhà thờ tổ Phan Tộc</h1>
 
           <p>
-            Xuân Phương - Xuân Trường - Nam Định
+            Thôn Trà Đông - Xuân Hưng - Ninh Bình
           </p>
 
           <button

@@ -1,44 +1,29 @@
-import axios from "axios";
-
-const ROLE_API_URL = "http://localhost:8081/api/roles";
-const ROLE_PERMISSIONS_API_URL = "http://localhost:8081/api/roles-permissions";
-
-const headers = {
-  "x-kxh-realm": "demo"
-};
+import axiosClient from "../config/axiosClient";
 
 export async function searchRoles(params) {
-
-  const response = await axios.get(
-    `${ROLE_API_URL}/search`,
-    {
-      headers,
-      params
-    }
-  );
+  const response = await axiosClient.get("/api/roles/search", {
+    params,
+  });
 
   return response.data;
 }
 
 export async function getRoleDetail(id) {
-  const response = await axios.get(`${ROLE_API_URL}/${id}`, {
-    headers
-  });
+  const response = await axiosClient.get(`/api/roles/${id}`);
+
   return response.data;
 }
 
 export async function getRolePermissions(id) {
-  const response = await axios.get(`${ROLE_PERMISSIONS_API_URL}/${id}`, {
-    headers
-  });
+  const response = await axiosClient.get(`/api/roles-permissions/${id}`);
+
   return response.data;
 }
 
 export async function updateRolePermissions(id, permissions) {
-  const response = await axios.put(
-    `${ROLE_PERMISSIONS_API_URL}/${id}`,
-    { permissions },
-    { headers }
-  );
+  const response = await axiosClient.put(`/api/roles-permissions/${id}`, {
+    permissions,
+  });
+
   return response.data;
 }

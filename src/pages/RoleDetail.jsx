@@ -437,7 +437,7 @@ export default function RoleDetail() {
         <CardBody>
           <div className="permission-toolbar">
             <div>
-              <h2>Ma trận phân quyền</h2>
+              <h2>Cấu hình phân quyền</h2>
               <p>Chọn quyền tương ứng cho từng chức năng.</p>
             </div>
 
